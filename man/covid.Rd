@@ -26,6 +26,8 @@ Um data frame com 383908 linhas e 19 variáveis:
 \item{eh_capital}{}
 \item{obitosAcumulado_log2}{}
 \item{obitosNovos_log2}{}
+\item{lat}{}
+\item{lon}{}
 }
 }
 \source{

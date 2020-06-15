@@ -23,6 +23,8 @@
 #' \item{eh_capital}{}
 #' \item{obitosAcumulado_log2}{}
 #' \item{obitosNovos_log2}{}
+#' \item{lat}{}
+#' \item{lon}{}
 #' }
 #' @source \url{https://covid.saude.gov.br/}
 "covid"
