@@ -1,0 +1,124 @@
+---
+output: html_document
+---
+
+** COVID-19 **
+
+Descrição: número de casos e óbitos diários por COVID no Brasil por município.
+
+Principais variáveis:
+
+- Número de casos e óbitos diários por COVID
+- Município, estado e população do município
+- Data
+- Latitude e longitude de cada município (centróide)
+
+Principais características
+
+- Séries temporais
+- Dados geográficos
+- Oportunidade para construção de mapas
+
+Sugestões de análises
+
+- Visualizar as séries de casos e óbitos por município
+- Prever o número de óbitos no próximo mês
+
+
+
+** Secretaria de Segurança Pública (SSP) de São Paulo **
+
+Descrição: número de ocorrências mensais de diversos crimes de 2002 a 2020 (abril) no nível delegacia para todo o Estado de São Paulo.
+
+Principais variáveis:
+
+- Número de ocorrências mensais (furtos, roubos, homicídios etc) 
+- Delegacia onde a ocorrência foi registrada
+- Município e região do estado da delegacia
+- Mês e ano
+
+Principais características
+
+- Séries temporais
+- Dados geográficos
+- Oportunidade para construção de mapas
+
+Sugestões de análises
+
+- Visualizar as séries de criminalidade
+- Avaliar se os níveis de criminalidade mudaram durante a quarentena
+
+
+
+
+** Companhia Ambiental do Estado de São Paulo (CETESB) **
+
+Descrição: concentração horária de alguns poluentes em algumas estações de monitoramento na Região Metropolitana de São Paulo de jan/2017 a mai/2020.
+
+Principais variáveis:
+
+- Concentração horária de CO, NO, NO2, O3 e MP10
+- Data e hora da medição
+- Estação de monitoramento
+- Latitude e longitude das estações de monitoramento
+
+Principais características
+
+- Séries temporais
+- Oportunidade para construção de mapas
+- Oportunidade para vários tipos de sumarização (dado que as medidas são horárias)
+
+Sugestões de análises
+
+- Visualizar cada uma das séries de poluentes
+- Avaliar se os níveis de poluição mudaram durante a quarentena
+
+
+
+
+** Análise de Crédito **
+
+Descrição: base com características de clientes que solicitaram empréstimo em uma financeira.
+
+Principais variáveis:
+
+- Classificação de cliente bom/ruim
+- Variáveis demográficas e financeiras do cliente
+- Tempo e valor do empréstimo solicitado
+
+Principais características
+
+- Oportunidade de modelagem preditiva
+- Problema de classificação (cliente bom/cliente ruim)
+- Variáveis explicativas númericas e categóricas
+
+Sugestões de análises
+
+- Avaliar quais características definem um cliente bom ou ruim
+- Construir um modelo para prever clientes bons e ruins
+
+
+
+
+** Pokémon **
+
+Descrição: base com os status base de todos os pokémon da primeira à sétima geração. 
+
+Principais variáveis:
+
+- Nome, tipo e geração de cada pokémon
+- Status base (altura, peso, hp, ataque, defesa etc)
+- Cor base e imagem de cada pokémon
+
+Principais características
+
+- Tema leve e descontraído (caso o mundo já esteja pesado demais)
+- Oportunidade de trabalhar com cores e imagens
+- Variáveis explicativas númericas e categóricas
+- Você vai ser uma/um dos únicas(os) a escolher essa base
+
+Sugestões de análises
+
+- Análise descritiva dos pokémon, por tipo e/ou geração
+- Analisar quais características estão correlacionadas (por exemplo, pokémon altos e pesados tendem a ter defesa maior?)
+
