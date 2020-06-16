@@ -75,4 +75,15 @@ cetesb <- dplyr::bind_rows(
     concentracao = conc
   )
 
+cetesb <- cetesb %>%
+  dplyr::mutate(estacao_cetesb = dplyr::case_when(
+    estacao_cetesb == "Cid.Universitária-USP-Ipen" ~ "IPEN-USP",
+    estacao_cetesb == "N.Senhora do Ó" ~ "Nossa Senhora do Ó",
+    TRUE ~ estacao_cetesb
+  )) %>% #dplyr::distinct(estacao_cetesb)
+  dplyr::left_join(
+    readxl::read_excel("data-raw/excel/cetesb_station_geoposition.xlsx"),
+    by = c("estacao_cetesb" = "stationname")
+  )
+
 usethis::use_data(cetesb, overwrite = TRUE)
