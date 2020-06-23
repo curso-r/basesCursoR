@@ -20,3 +20,6 @@ walk2(csvs, nomes, ~{
 })
 
 dbDisconnect(engine)
+
+#
+# dbConnect(RSQLite::SQLite(), system.file("olist/olist.db", package = "basesCursoR"))
