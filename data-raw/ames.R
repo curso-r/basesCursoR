@@ -2,6 +2,20 @@
 
 library(dplyr)
 
+arrumar_qualidade <- function(x) {
+  if (is.numeric(x)) {
+    return(x)
+  }
+  case_when(
+    is.na(x) ~ x,
+    x == "Po" ~ "Baixa",
+    x == "Fa" ~ "Regular",
+    x == "TA" ~ "Média",
+    x == "Gd" ~ "Boa",
+    x == "Ex" ~ "Excelente"
+   )
+}
+
 ames <- AmesHousing::ames_raw %>%
   janitor::clean_names() %>%
   select(
@@ -29,8 +43,8 @@ ames <- AmesHousing::ames_raw %>%
     exterior_cobertura_2 = exterior_2nd,
     exterior_qualidade = exter_qual,
     exterior_condicao = exter_cond,
-    tipo_alvenaria = mas_vnr_type,
-    area_alvenaria = mas_vnr_area,
+    alvenaria_tipo = mas_vnr_type,
+    alvenaria_area = mas_vnr_area,
     fundacao_tipo = foundation,
     porao_qualidade = bsmt_qual,
     porao_condicao = bsmt_cond,
@@ -82,7 +96,11 @@ ames <- AmesHousing::ames_raw %>%
     venda_tipo = sale_type,
     venda_condicao = sale_condition,
     venda_valor = sale_price
-  )
+  ) %>%
+  mutate(across(
+    contains("qualidade"),
+    arrumar_qualidade
+  ))
 
 usethis::use_data(ames, overwrite = TRUE)
 

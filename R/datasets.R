@@ -89,8 +89,8 @@
 #'   \item{telhado_material}{material do qual o telhado é feito.}
 #'   \item{exterior_cobertura_1}{cobertura do exterior da casa.}
 #'   \item{exterior_cobertura_2}{cobertura do exterior da casa (se tiver mais de uma).}
-#'   \item{tipo_alvenaria}{tipo de alvenaria da casa.}
-#'   \item{area_alvenaria}{área da alvenaria (pés quadrados).}
+#'   \item{alvenaria_tipo}{tipo de alvenaria da casa.}
+#'   \item{alvenaria_area}{área da alvenaria (pés quadrados).}
 #'   \item{exterior_qualidade}{avaliação da qualidade do material usado no exterior da casa.}
 #'   \item{exterior_condicao}{avaliação da condição do exterior da casa.}
 #'   \item{fundacao_tipo}{tipo da fundação da casa.}
