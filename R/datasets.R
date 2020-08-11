@@ -147,3 +147,114 @@
 #' }
 #' @source \url{https://github.com/topepo/AmesHousing}
 "ames"
+
+
+#' Airbnb Dataset do Rio De Janeiro
+#'
+#' Extração feita pelo site [insideairbnb.com](http://insideairbnb.com/get-the-data.html) da listagem de
+#' locações disponíveis no site [Airbnb](https://www.airbnb.com.br/)
+#'
+#' Possíveis análises:
+#'
+#' - Prever preço diário de uma locação (`price`)
+#' - Análise geoespacial (`latitude` e `longitude`)
+#' - Análise de textos (`reviews` e `description`)
+#'
+#' @format Um data frame com 25000 linhas e 93 variáveis:
+#' \describe{
+#' \item{listing_id}{}
+#' \item{name}{}
+#' \item{summary}{}
+#' \item{space}{}
+#' \item{description}{}
+#' \item{experiences_offered}{}
+#' \item{neighborhood_overview}{}
+#' \item{notes}{}
+#' \item{transit}{}
+#' \item{access}{}
+#' \item{interaction}{}
+#' \item{house_rules}{}
+#' \item{host_id}{}
+#' \item{host_since}{}
+#' \item{host_location}{}
+#' \item{host_about}{}
+#' \item{host_response_time}{}
+#' \item{host_response_rate}{}
+#' \item{host_acceptance_rate}{}
+#' \item{host_is_superhost}{}
+#' \item{host_listings_count}{}
+#' \item{host_total_listings_count}{}
+#' \item{host_verifications}{}
+#' \item{host_has_profile_pic}{}
+#' \item{host_identity_verified}{}
+#' \item{street}{}
+#' \item{neighbourhood}{}
+#' \item{neighbourhood_cleansed}{}
+#' \item{neighbourhood_group_cleansed}{}
+#' \item{city}{}
+#' \item{state}{}
+#' \item{zipcode}{}
+#' \item{market}{}
+#' \item{smart_location}{}
+#' \item{country_code}{}
+#' \item{latitude}{}
+#' \item{longitude}{}
+#' \item{is_location_exact}{}
+#' \item{property_type}{}
+#' \item{room_type}{}
+#' \item{accommodates}{}
+#' \item{bathrooms}{}
+#' \item{bedrooms}{}
+#' \item{beds}{}
+#' \item{bed_type}{}
+#' \item{amenities}{}
+#' \item{square_feet}{}
+#' \item{price}{}
+#' \item{weekly_price}{}
+#' \item{monthly_price}{}
+#' \item{security_deposit}{}
+#' \item{cleaning_fee}{}
+#' \item{guests_included}{}
+#' \item{extra_people}{}
+#' \item{minimum_nights}{}
+#' \item{maximum_nights}{}
+#' \item{minimum_minimum_nights}{}
+#' \item{maximum_minimum_nights}{}
+#' \item{minimum_maximum_nights}{}
+#' \item{maximum_maximum_nights}{}
+#' \item{minimum_nights_avg_ntm}{}
+#' \item{maximum_nights_avg_ntm}{}
+#' \item{has_availability}{}
+#' \item{availability_30}{}
+#' \item{availability_60}{}
+#' \item{availability_90}{}
+#' \item{availability_365}{}
+#' \item{number_of_reviews}{}
+#' \item{number_of_reviews_ltm}{}
+#' \item{first_review}{}
+#' \item{last_review}{}
+#' \item{review_scores_rating}{}
+#' \item{review_scores_accuracy}{}
+#' \item{review_scores_cleanliness}{}
+#' \item{review_scores_checkin}{}
+#' \item{review_scores_communication}{}
+#' \item{review_scores_location}{}
+#' \item{review_scores_value}{}
+#' \item{requires_license}{}
+#' \item{license}{}
+#' \item{jurisdiction_names}{}
+#' \item{instant_bookable}{}
+#' \item{is_business_travel_ready}{}
+#' \item{cancellation_policy}{}
+#' \item{require_guest_profile_picture}{}
+#' \item{require_guest_phone_verification}{}
+#' \item{calculated_host_listings_count}{}
+#' \item{calculated_host_listings_count_entire_homes}{}
+#' \item{calculated_host_listings_count_private_rooms}{}
+#' \item{calculated_host_listings_count_shared_rooms}{}
+#' \item{reviews_per_month}{}
+#' \item{reviews}{}
+#' \item{extra_people2}{}
+#' }
+#' @source \url{http://insideairbnb.com/get-the-data.html}
+"airbnb_rj"
