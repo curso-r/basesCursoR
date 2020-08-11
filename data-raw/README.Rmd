@@ -26,6 +26,7 @@ Sugestões de análises
 
 
 
+
 ** Secretaria de Segurança Pública (SSP) de São Paulo **
 
 Descrição: número de ocorrências mensais de diversos crimes de 2002 a 2020 (abril) no nível delegacia para todo o Estado de São Paulo.
@@ -122,3 +123,9 @@ Sugestões de análises
 - Análise descritiva dos pokémon, por tipo e/ou geração
 - Analisar quais características estão correlacionadas (por exemplo, pokémon altos e pesados tendem a ter defesa maior?)
 
+
+
+
+** Sua base **
+
+Você também pode usar uma base sua na entrega final. Só não se esqueça de descrever bem o problema e as variáveis envolvidas.
