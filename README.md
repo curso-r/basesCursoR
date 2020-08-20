@@ -32,7 +32,9 @@ Listamos abaixo as bases contidas no pacote.
   - Descrição: informações de casas vendidas na cidade de Ames, IA
     (EUA).
   - Dimensões: 2930 linhas e 77 colunas.
-  - Fontes: tradução da base `AmesHousing::ames_raw`.
+  - Fonte: esta versão é uma tradução da base `AmesHousing::ames_raw`.
+  - A tradução teve como base [esta
+    documentação](http://jse.amstat.org/v19n3/decock/DataDocumentation.txt).
 
 <!-- end list -->
 
@@ -54,8 +56,8 @@ head(tibble::tibble(ames))
 #> #   construcao_ano <int>, remodelacao_ano <int>, geral_qualidade <int>,
 #> #   geral_condicao <int>, telhado_estilo <chr>, telhado_material <chr>,
 #> #   exterior_cobertura_1 <chr>, exterior_cobertura_2 <chr>,
-#> #   exterior_qualidade <chr>, exterior_condicao <chr>, tipo_alvenaria <chr>,
-#> #   area_alvenaria <int>, fundacao_tipo <chr>, porao_qualidade <chr>,
+#> #   exterior_qualidade <chr>, exterior_condicao <chr>, alvenaria_tipo <chr>,
+#> #   alvenaria_area <int>, fundacao_tipo <chr>, porao_qualidade <chr>,
 #> #   porao_condicao <chr>, porao_exposicao <chr>, porao_acabamento_1 <chr>,
 #> #   porao_acabamento_2 <chr>, porao_area_com_acabamento_1 <int>,
 #> #   porao_area_com_acabamento_2 <int>, porao_area_sem_acabamento <int>,

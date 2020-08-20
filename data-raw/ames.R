@@ -2,20 +2,6 @@
 
 library(dplyr)
 
-arrumar_qualidade <- function(x) {
-  if (is.numeric(x)) {
-    return(x)
-  }
-  case_when(
-    is.na(x) ~ x,
-    x == "Po" ~ "Baixa",
-    x == "Fa" ~ "Regular",
-    x == "TA" ~ "Média",
-    x == "Gd" ~ "Boa",
-    x == "Ex" ~ "Excelente"
-   )
-}
-
 ames <- AmesHousing::ames_raw %>%
   janitor::clean_names() %>%
   select(
@@ -100,6 +86,10 @@ ames <- AmesHousing::ames_raw %>%
   mutate(across(
     contains("qualidade"),
     arrumar_qualidade
+  )) %>%
+  mutate(across(
+    c("rua_tipo", "beco_tipo"),
+    arrumar_tipo_rua
   ))
 
 usethis::use_data(ames, overwrite = TRUE)
