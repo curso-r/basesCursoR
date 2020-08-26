@@ -1,0 +1,50 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# basesCursoR
+
+Bases (traduzidas para o Português) utilizadas nos cursos da Curso-R.
+
+## Instalação
+
+Para ter acesso a todas as bases, instale o pacote utilizando o código a seguir:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("curso-r/basesCursoR")
+```
+## Exemplo
+
+Para acessar uma base, basta rodar o código abaixo.
+
+```{r example, eval=FALSE}
+data(nome_da_base, package = "basesCursoR")
+```
+
+## Bases
+
+Listamos abaixo as bases contidas no pacote.
+
+#### Ames
+
+- Descrição: informações de casas vendidas na cidade de Ames, IA (EUA).
+- Dimensões: 2930 linhas e 77 colunas.
+- Fonte: esta versão é uma tradução da base `AmesHousing::ames_raw`.
+- A tradução teve como base [esta documentação](http://jse.amstat.org/v19n3/decock/DataDocumentation.txt).
+
+```{r}
+data(ames, package = "basesCursoR")
+head(tibble::tibble(ames))
+```

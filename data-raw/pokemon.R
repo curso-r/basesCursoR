@@ -185,4 +185,12 @@ pokemon <- df_pkmn %>%
     )
   )
 
+pokemon <- pokemon %>%
+  mutate(
+    url_imagem = paste0(
+      "https://raw.githubusercontent.com/phalt/pokeapi/master/data/Pokemon_XY_Sprites/",
+      url_imagem
+    )
+  )
+
 usethis::use_data(pokemon, overwrite = TRUE)
