@@ -5,7 +5,6 @@ library(dplyr)
 library(tidyr)
 library(stringr)
 
-
 # movies ------------------------------------------------------------------
 
 temp_file <- tempfile(fileext = ".csv")
@@ -19,6 +18,7 @@ movies <- read_csv(temp_file)
 
 imdb_completa <- movies |>
   select(
+    id_filme = imdb_title_id,
     titulo = title,
     titulo_original = original_title,
     ano = year,
@@ -31,6 +31,7 @@ imdb_completa <- movies |>
     receita = worlwide_gross_income,
     receita_eua = usa_gross_income,
     nota_imdb = avg_vote,
+    num_avaliacoes = votes,
     direcao = director,
     roteiro = writer,
     producao = production_company,
@@ -40,11 +41,44 @@ imdb_completa <- movies |>
     num_criticas_critica = reviews_from_critics
   )
 
-imdb_completa |>
-  drop_na(receita) |>
-  filter(!str_detect(receita, "\\$")) |> View()
+usethis::use_data(imdb_completa, overwrite = TRUE)
+
+imdb <- imdb_completa |>
+  filter(str_detect(orcamento, "\\$") | is.na(orcamento)) |>
+  filter(str_detect(receita, "\\$") | is.na(receita)) |>
+  filter(str_detect(receita_eua, "\\$") | is.na(receita_eua)) |>
+  mutate(
+    across(
+      c(orcamento, receita, receita_eua),
+      readr::parse_number
+    )
+  ) |>
+  sample_n(n(), replace = FALSE)
 
 usethis::use_data(imdb, overwrite = TRUE)
+
+# title_principals --------------------------------------------------------
+
+temp_file <- tempfile(fileext = ".csv")
+
+googledrive::drive_download(
+  file = "https://drive.google.com/file/d/135sFmJST9lrSjYDLehSvETJ-ynJ1EGWi/view?usp=sharing",
+  path = temp_file
+)
+
+title_principals <- read_csv(temp_file)
+
+imdb_top_cast <- title_principals |>
+  select(
+    id_filme = imdb_title_id,
+    pessoa_id = imdb_name_id,
+    ordem = ordering,
+    categoria = category,
+    atribuicao = job,
+    personagem = characters
+  )
+
+usethis::use_data(imdb_top_cast, overwrite = TRUE)
 
 # names -------------------------------------------------------------------
 
@@ -57,8 +91,9 @@ googledrive::drive_download(
 
 names <- read_csv(temp_file)
 
-imdb_nomes <- names |>
+imdb_pessoas <- names |>
   select(
+    pessoa_id = imdb_name_id,
     nome = name,
     nome_nascimento = birth_name,
     altura = height,
@@ -75,7 +110,7 @@ imdb_nomes <- names |>
     num_conjuges_com_filhos = spouses_with_children
   )
 
-usethis::use_data(imdb_nomes, overwrite = TRUE)
+usethis::use_data(imdb_pessoas, overwrite = TRUE)
 
 
 # ratings -----------------------------------------------------------------
@@ -89,18 +124,46 @@ googledrive::drive_download(
 
 ratings <- read_csv(temp_file)
 
+imdb_avaliacoes <- ratings |>
+  select(
+    id_filme = imdb_title_id,
+    num_avaliacoes = total_votes,
+    nota_media = mean_vote,
+    nota_mediana = median_vote,
+    nota_media_ponderada = weighted_average_vote,
+    starts_with("allgenders"),
+    nota_media_top_1000_avaliadores = top1000_voters_rating,
+    num_votos_top_1000_avaliadores = top1000_voters_votes,
+    nota_media_eua = us_voters_rating,
+    num_votos_eua = us_voters_votes,
+    nota_media_fora_eua = non_us_voters_rating,
+    num_votos_fora_eua = non_us_voters_votes,
+  ) |>
+  rename_with(
+    .fn = ~ str_replace(.x, "votes_", "num_notas_"),
+    .cols = starts_with("votes_")
+  ) |>
+  rename_with(
+    .fn = ~ str_replace(.x, "allgenders|", "nota_media_") |>
+      str_replace("_0age", "idade_0_18") |>
+      str_replace("_18age", "idade_18_30") |>
+      str_replace("_30age", "idade_30_45") |>
+      str_replace("_45age", "idade_45_mais") |>
+      str_remove("_avg_vote"),
+    .cols = ends_with("_avg_vote")
+  ) |>
+  rename_with(
+    .fn = ~ str_replace(.x, "allgenders|", "num_votos_") |>
+      str_replace("_0age", "idade_0_18") |>
+      str_replace("_18age", "idade_18_30") |>
+      str_replace("_30age", "idade_30_45") |>
+      str_replace("_45age", "idade_45_mais") |>
+      str_remove("_votes"),
+    .cols = ends_with("_votes")
+  )
 
-# title_principals --------------------------------------------------------
+usethis::use_data(imdb_avaliacoes, overwrite = TRUE)
 
-
-temp_file <- tempfile(fileext = ".csv")
-
-googledrive::drive_download(
-  file = "https://drive.google.com/file/d/135sFmJST9lrSjYDLehSvETJ-ynJ1EGWi/view?usp=sharing",
-  path = temp_file
-)
-
-title_principals <- read_csv(temp_file)
 
 
 
