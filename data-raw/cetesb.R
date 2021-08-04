@@ -86,4 +86,4 @@ cetesb <- cetesb %>%
     by = c("estacao_cetesb" = "stationname")
   )
 
-usethis::use_data(cetesb, overwrite = TRUE)
+readr::write_rds(cetesb, "inst/extdata/cetesb.rds", compress = "xz")

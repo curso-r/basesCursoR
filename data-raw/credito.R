@@ -51,4 +51,4 @@ credito <- credit_data %>%
     )
   )
 
-usethis::use_data(credito, overwrite = TRUE)
+readr::write_rds(credito, "inst/extdata/credito.rds", compress = "xz")

@@ -50,5 +50,4 @@ adult <- list(
   teste = adult_test
 )
 
-
-usethis::use_data(adult, overwrite = TRUE)
+readr::write_rds(adult, "inst/extdata/adult.rds", compress = "xz")

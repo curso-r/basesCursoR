@@ -80,4 +80,4 @@ covid <- left_join(
 ) %>%
   select(-mun)
 
-usethis::use_data(covid, overwrite = TRUE)
+readr::write_rds(covid, "inst/extdata/covid.rds", compress = "xz")

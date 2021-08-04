@@ -20,4 +20,4 @@ ssp <- tab_ocor %>%
   ) %>%
   dplyr::collect()
 
-usethis::use_data(ssp, overwrite = TRUE)
+readr::write_rds(ssp, "inst/extdata/ssp.rds", compress = "xz")

@@ -29,4 +29,7 @@ airbnb_rj <- airbnb_rj_listings %>%
     extra_people2 = parse_number(extra_people)
   )
 
-usethis::use_data(airbnb_rj, overwrite = TRUE)
+readr::write_rds(airbnb_rj, "inst/extdata/airbnb_rj.rds", compress = "xz")
+
+
+

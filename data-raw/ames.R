@@ -2,6 +2,31 @@
 
 library(dplyr)
 
+arrumar_qualidade <- function(x) {
+  if (is.numeric(x)) {
+    return(x)
+  }
+  case_when(
+    is.na(x) ~ x,
+    x == "Po" ~ "Baixa",
+    x == "Fa" ~ "Regular",
+    x == "TA" ~ "Média",
+    x == "Gd" ~ "Boa",
+    x == "Ex" ~ "Excelente",
+    TRUE ~ x
+  )
+}
+
+
+arrumar_tipo_rua <- function(x) {
+  case_when(
+    is.na(x) ~ x,
+    x == "Grvl" ~ "cascalho",
+    x == "Pave" ~ "pavimentada",
+    TRUE ~ x
+  )
+}
+
 ames <- AmesHousing::ames_raw %>%
   janitor::clean_names() %>%
   select(
@@ -92,7 +117,7 @@ ames <- AmesHousing::ames_raw %>%
     arrumar_tipo_rua
   ))
 
-usethis::use_data(ames, overwrite = TRUE)
+readr::write_rds(ames, "inst/extdata/ames.rds", compress = "xz")
 
 # Documentacao
 

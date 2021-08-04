@@ -55,7 +55,7 @@ imdb <- imdb_completa |>
   ) |>
   sample_n(n(), replace = FALSE)
 
-usethis::use_data(imdb, overwrite = TRUE)
+readr::write_rds(imdb, "inst/extdata/imdb.rds", compress = "xz")
 
 # title_principals --------------------------------------------------------
 
@@ -78,7 +78,7 @@ imdb_top_cast <- title_principals |>
     personagem = characters
   )
 
-usethis::use_data(imdb_top_cast, overwrite = TRUE)
+readr::write_rds(imdb_top_cast, "inst/extdata/imdb_top_cast.rds", compress = "xz")
 
 # names -------------------------------------------------------------------
 
@@ -110,8 +110,7 @@ imdb_pessoas <- names |>
     num_conjuges_com_filhos = spouses_with_children
   )
 
-usethis::use_data(imdb_pessoas, overwrite = TRUE)
-
+readr::write_rds(imdb_pessoas, "inst/extdata/imdb_pessoas.rds", compress = "xz")
 
 # ratings -----------------------------------------------------------------
 
@@ -162,7 +161,7 @@ imdb_avaliacoes <- ratings |>
     .cols = ends_with("_votes")
   )
 
-usethis::use_data(imdb_avaliacoes, overwrite = TRUE)
+readr::write_rds(imdb_avaliacoes, "inst/extdata/imdb_avaliacoes.rds", compress = "xz")
 
 
 

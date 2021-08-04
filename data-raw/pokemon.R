@@ -193,4 +193,4 @@ pokemon <- pokemon %>%
     )
   )
 
-usethis::use_data(pokemon, overwrite = TRUE)
+readr::write_rds(pokemon, "inst/extdata/pokemon.rds", compress = "xz")
