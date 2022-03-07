@@ -23,7 +23,7 @@ imdb_completa <- movies |>
     titulo_original = original_title,
     ano = year,
     data_lancamento = date_published,
-    genero = genre,
+    generos = genre,
     duracao = duration,
     pais = country,
     idioma = language,
